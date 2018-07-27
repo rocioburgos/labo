@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Primer Parcial Laboratorio III</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="bower_components/jquery/dist/jquery.slim.min.js"></script><!--agregar ek -->
+    <link  href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script  src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!------ Include the above in your HEAD tag ---------->
+      <!-- AGREGAR ARCHIVOS JS AQUI -->
+  <script src="./TS/login.js"></script>
+  <script src="./TS/main.js"></script>
+  <script src="./TS/validaciones.js"></script>
+  <style>
+        .margin-bootom-xs {
+            margin-bottom: 5px;
+        }
+        
+        .margin-bootom-sm {
+            margin-bottom: 10px;
+        }
+        
+        .margin-bootom-md {
+            margin-bottom: 10px;
+        }
+        
+        .margin-bootom-lg {
+            margin-bottom: 40px;
+        }
+  </style>
+</head>
+
+<body style="background-color:rgb(237, 248, 139)">
+    <div class="container">    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+            <div class="panel panel-default col-12" >
+                <div class="panel-heading" style="background-color:rgb(251, 253, 243)">
+                    <div class="panel-title" >Login</div>
+                </div>     
+
+                <div style="padding-top:30px" class="panel-body" >
+
+                    <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                                
+                        <form id="loginform" class="form-horizontal" role="form">           
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon">
+                                    <label>Email</label>
+                                        <i class="glyphicon glyphicon-envelope"></i></span>
+                                        <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Email">                                        
+                                        <span class="input-group-addon" id="spnEmail" style="display:none; color:red">*</span>
+                            </div>
+                                        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon">
+                                <label>Clave</label>
+                                <i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="login-password" type="password" class="form-control" name="password" placeholder="Contraseña">
+                                <span class="input-group-addon" id="spnClave" style="display:none; color:red">*</span>
+                            </div>
+     
+                      <!--    <div style="margin-top:10px" class="form-group"> -->
+                                <div class="form-group">     
+                                 <div class="col-xs-12 col-sm-12 controls">
+                                       <!-- <a  id="enviar" name="button1id"               class="btn btn-primary col-xs-12 col-sm-6 " onclick="Main.Login.Enviar()">Enviar</a>
+                                        <button type="reset" id="Limpar" name="Limpar" class="btn btn-warning col-xs-12 col-sm-6" >Limpar</button>
+                                        -->
+                                         <a  id="enviar" name="button1id"               class="btn btn-primary col-xs-12 col-sm-4 col-sm-offset-1 col-sm-onset-1" onclick="Main.Login.Enviar()">Enviar</a>
+                                        <button type="reset" id="Limpar" name="Limpar" class="btn btn-warning col-xs-12 col-sm-4 col-sm-onset-1 col-sm-offset-1" >Limpar</button>
+                                        
+                                    
+                                    </div>     
+                                </div>
+                           <!--   </div>   -->
+                        </form> 
+                                
+                        <div id="errorAlert"></div>
+                        <div id="errorEmail"></div>
+                        <div id="errorClave"></div> 
+                    
+                            <center>
+                                <div class="row d-flex controls">
+                                       
+                                    <a id="btn-login" href="registro.html" class="col-xs-12 btn btn-success">Quiero registrarme!</a>
+                                </div> 
+                            </center>
+                        </div>  
+                 </div>                    
+            </div>  
+        </div>               
+    </div> 
+        
+</body>
+</html>

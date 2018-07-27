@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link  href="./bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <script src="./bower_components/jquery/dist/jquery.slim.min.js"></script>
+    <script  src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./TS/principal.js"></script>
+    <script src="./TS/accionesAdmin.js"></script>
+    <script src="./TS/validaciones.js"></script>
+    <title>Principal</title>
+  </head>
+  <body  >
+        <div class="container-fluid"> 
+          <div class="table-responsive "> 
+                <table class="table table-striped table-bordered" id="tabla">
+                    <tr>
+                        <th>Correo</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                        <th>Perfil</th>       
+                        <th>Legajo</th>             
+                        <th>Foto</th>
+                       
+                       <!-- <img src="" width="50px" >  -->
+                      
+                    </tr>
+                </table>
+        </div> 
+    </div>
+
+
+    <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Modificar</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="registerform" class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="./TS/BACKEND/administrar.php">
+                                    
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                <input id="register-name" type="text" class="form-control" name="name" value="" placeholder="Tu nombre.">                                        
+                                <span class="input-group-addon" id="spnNombre" style="display:none; color:red">*</span>
+                            </div>
+        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="register-surname" type="text" class="form-control" name="username" value="" placeholder="Tu apellido.">                                        
+                                    <span class="input-group-addon" id="spnApellido" style="display:none; color:red">*</span>
+                            </div>
+                            
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input id="register-email" type="email" class="form-control" name="email" placeholder="Tu correo electronico.">
+                                <span class="input-group-addon" id="spnEmail" style="display:none; color:red">*</span>
+                            </div>
+        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-folder-open"></i></span>
+                                <input id="register-legajo" type="number" class="form-control" name="legajo" placeholder="Tu legajo" >
+                                <span class="input-group-addon" id="spnLegajo" style="display:none; color:red">*</span>
+                            </div>
+        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-option-horizontal"></i></span>
+                            <!-- <input id="" type="text" class="form-control" name="perfil" placeholder="Tu perfil"> -->
+                                <select id="register-perfil"class="selectpicker" data-style="btn-primary" style="display: block;">
+                                    <option value="Administrador" data-color="#A0522D">Administrador</option>
+                                    <option value="Invitado" data-color="#CD5C5C" selected="selected">Invitado</option>
+                                
+                                </select>
+                            
+                            </div>
+        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-camera"></i></span>
+                                    <input id="register-foto" name="comprobante" class="input-file form-control" type="file">
+                                    <span class="input-group-addon" id="spnFoto" style="display:none; color:red">*</span>
+                            </div>
+        
+                            <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="register-password" type="password" class="form-control" name="password" placeholder="Tu contraseña.">
+                                    <span class="input-group-addon" id="spnClave" style="display:none; color:red">*</span>
+                            </div>
+            
+                            <div style="margin-bottom: 25px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                    <input id="register-confirmar" type="password" class="form-control" name="password" placeholder="Repite tu contraseña">
+                                    <span class="input-group-addon" id="spnClaveConf" style="display:none; color:red">*</span>
+                            </div>
+        
+                            <div id="emailExiste"></div>
+                            <div id="errorEmail"></div>
+                            <div id="errorNombre"></div>
+                            <div id="errorApellido"></div>
+                            <div id="errorClave"></div>
+                            <div id="errorClaveIguales"></div>
+                            <div id="errorLegajo"></div>
+                            <div id="errorFoto"></div>
+                            
+                            <div class="form-group">     
+                                <div class="col-xs-12 col-sm-12 controls">
+                                    <a  id="enviar" name="button1id"               class="btn btn-primary col-xs-12 col-sm-3 col-md-3 col-sm-offset-2" onclick="Main.Admin.Modificar()">Modificar</a>
+                                    <button type="reset" id="Limpar" name="Limpar" class="btn btn-warning col-xs-12 col-sm-3 col-md-3 col-sm-offset-2" >Limpar</button>
+                                </div>     
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+</body>
+</html>
